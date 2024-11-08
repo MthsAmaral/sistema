@@ -18,8 +18,8 @@ export default function TelaCadastroProduto(props) {
         precoVenda:0,
         qtdEstoque:0,
         urlImagem:"",
-        dataValidade:""
-
+        dataValidade:"",
+        categoria:{}
     });
 
     useEffect(()=>{
@@ -40,17 +40,18 @@ export default function TelaCadastroProduto(props) {
                     exibirTabela ?
                         <TabelaProdutos listaDeProdutos={listaDeProdutos}
                                         setListaDeProdutos={setListaDeProdutos} 
+                                        setExibirTabela={setExibirTabela}
                                         setModoEdicao={setModoEdicao}
                                         setProdutoSelecionado={setProdutoSelecionado}
-                                        setExibirTabela={setExibirTabela} /> :
+                                         /> :
             
                         <FormCadProdutos listaDeProdutos={listaDeProdutos}
                                          setListaDeProdutos={setListaDeProdutos}
-                                         modoEdicao={modoEdicao}
-                                         setModoEdicao={setModoEdicao}
+                                         setExibirTabela={setExibirTabela}
                                          produtoSelecionado={produtoSelecionado}
                                          setProdutoSelecionado={setProdutoSelecionado}
-                                         setExibirTabela={setExibirTabela}
+                                         modoEdicao={modoEdicao}
+                                         setModoEdicao={setModoEdicao}
                                          />
                 }
             </Pagina>

@@ -1,5 +1,5 @@
 import { Button, Container, Table } from "react-bootstrap";
-import { excluirProduto } from "../../../servicos/servicoProduto.js";
+import { excluirProduto } from '../../../servicos/servicoProduto';
 export default function TabelaProdutos(props) {
 
     function editarProduto(produto){
@@ -10,18 +10,19 @@ export default function TabelaProdutos(props) {
 
     function excluirProdutoFrontEnd(produto){
         if(window.confirm("Deseja realmente excluir o produto " + produto.descricao)){
-            excluirProduto(produto).then((resposta)=>{//excluir produto do Backend
-                if(resposta.status){//não exibe produto no frontEnd
+            //abordagem utilizando a sintaxe permitida da linguagem
+            excluirProduto(produto).then((resposta)=>{
+                if (resposta.status){
                     props.setListaDeProdutos(props.listaDeProdutos.filter(
                         (item)=>{
-                                    return item.codigo !== produto.codigo     
+                                    return item.codigo != produto.codigo     
                     }));
                 }
-                else
-                    window.alert("Não foi possível excluir o produto: "+resposta.mensagem);
+                else{
+                    window.alert("Não foi possível excluir o produto: " + resposta.mensagem);
+                }
             })
-            //abordagem utilizando a sintaxe permitida da linguagem
-            /**/
+            
 
             //abordagem elementar            
             /*let novaLista= []
@@ -68,7 +69,7 @@ export default function TabelaProdutos(props) {
                                                           "width":"40px",
                                                           "height":"40px"
                                                         }} src={produto.urlImagem} alt="foto do produto" /></td>
-                                        <td>{new Date(produto.dataValidade).toLocaleDateString()}</td>
+                                        <td>{produto.dataValidade}</td>
                                         <td>
                                             <Button onClick={()=>{
                                                 editarProduto(produto);

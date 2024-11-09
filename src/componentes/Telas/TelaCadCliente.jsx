@@ -1,5 +1,5 @@
 import { Alert } from "react-bootstrap";
-import FormCadClientes from "./Formulario/FormCadCliente";
+import FormCadClientes from "./Formularios/FormCadCliente";
 import Pagina from "../layouts/Pagina";
 import { useState } from "react";
 import TabelaClientes from "./Tabelas/TabelaClientes";

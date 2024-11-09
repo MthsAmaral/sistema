@@ -1,5 +1,5 @@
 import { Alert } from "react-bootstrap";
-import FormCadCategorias from "./Formulario/FormCadCategoria";
+import FormCadCategorias from "./Formularios/FormCadCategoria";
 import Pagina from "../layouts/Pagina";
 import { useState } from "react";
 import TabelaCategorias from "./Tabelas/TabelaCategorias";

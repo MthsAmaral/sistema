@@ -1,5 +1,5 @@
 import { Alert } from "react-bootstrap";
-import FormCadEntregadores from "./Formulario/FormCadEntregador";
+import FormCadEntregadores from "./Formularios/FormCadEntregador";
 import Pagina from "../layouts/Pagina";
 import { useState } from "react";
 import TabelaEntregadores from "./Tabelas/TabelaEntregadores";

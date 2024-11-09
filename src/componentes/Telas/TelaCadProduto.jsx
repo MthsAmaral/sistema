@@ -1,16 +1,16 @@
 import { Alert } from "react-bootstrap";
-import FormCadProdutos from "./Formulario/FormCadProduto";
+import FormCadProdutos from "./Formularios/FormCadProduto";
 import Pagina from "../layouts/Pagina";
 import { useEffect, useState } from "react";
 import TabelaProdutos from "./Tabelas/TabelaProdutos";
-import { produtos } from "../../dados/mockProdutos";
-import { consultarProduto } from "../../servicos/servicoProduto.js";
+//import { produtos } from "../../dados/mockProdutos";
+import { consultarProduto } from "../../servicos/servicoProduto";
 
 export default function TelaCadastroProduto(props) {
-    const [produtos, setProdutos] = useState([]);
     const [exibirTabela, setExibirTabela] = useState(true);
-    const [listaDeProdutos, setListaDeProdutos] = useState(produtos);
+    const [listaDeProdutos, setListaDeProdutos] = useState([]);
     const [modoEdicao, setModoEdicao] = useState(false);
+    //const [produtos, setProdutos] = useState([]);
     const [produtoSelecionado, setProdutoSelecionado] = useState({
         codigo:0,
         descricao:"",
@@ -19,14 +19,15 @@ export default function TelaCadastroProduto(props) {
         qtdEstoque:0,
         urlImagem:"",
         dataValidade:"",
-        categoria:{}
+        categoria: {}
+
     });
 
     useEffect(()=>{
         consultarProduto().then((lista)=>{
-            setListaDeProdutos(lista)
-        })
-    },[])//lista vazia -> didMount
+            setListaDeProdutos(lista);
+        });
+    },[]); //listaVazia -> didMount
    
     return (
         <div>
@@ -42,9 +43,7 @@ export default function TelaCadastroProduto(props) {
                                         setListaDeProdutos={setListaDeProdutos} 
                                         setExibirTabela={setExibirTabela}
                                         setModoEdicao={setModoEdicao}
-                                        setProdutoSelecionado={setProdutoSelecionado}
-                                         /> :
-            
+                                        setProdutoSelecionado={setProdutoSelecionado} /> :
                         <FormCadProdutos listaDeProdutos={listaDeProdutos}
                                          setListaDeProdutos={setListaDeProdutos}
                                          setExibirTabela={setExibirTabela}
@@ -52,6 +51,7 @@ export default function TelaCadastroProduto(props) {
                                          setProdutoSelecionado={setProdutoSelecionado}
                                          modoEdicao={modoEdicao}
                                          setModoEdicao={setModoEdicao}
+
                                          />
                 }
             </Pagina>
